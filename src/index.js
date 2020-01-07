@@ -1,29 +1,29 @@
-// console.log('1234')
-// import axios from "axios"
-// axios.get("/api/info").then(res => {
-//   console.log(res)
-// })
+//引入编译类 compile
+import MyVue from './init.js';
 
-import counter from './a';
-import number from "./b"
+let vm = new MyVue({
+  el: "#app",
+  data: {
+    name: '我是琦琦',
+    age: 12,
+    obj: {
+      foo: '我是重复'
+    },
+    content: '我是书写的内容'
+  },
+  methods: {
+    changeName() {
 
-// import "./css/index.css";
-// var btn = document.createElement("button");
-// btn.innerHTML = "新增";
-// document.body.appendChild(btn);
+      this.name = "哈喽你好呀";
+      this.age = 1;
 
-// btn.onclick = function () {
-//   var div = document.createElement("div");
-//   console.log("1");
-//   div.innerHTML = "item111";
-//   document.body.appendChild(div)
-// }
+    }
+  },
+  created() {
+    console.log("开始啦")
+    setTimeout(() => {
+      this.name = '我是猪猪'
+    }, 1000)
+  },
 
-counter();
-number();
-if (module.hot) {
-  module.hot.accept("./b", function () {
-    document.body.removeChild(document.getElementById("number"));
-    number();
-  })
-}
+})
