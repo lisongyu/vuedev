@@ -23,7 +23,7 @@ module.exports = {
     open: true, //自动打开浏览器
     port: 8081, //端口
     hot: true,
-    hotOnly: true,
+
     proxy: {
       "/api": {
         target: "http://localhost:9092"
@@ -41,11 +41,11 @@ module.exports = {
             limit: 2048
           }
         }
-    },
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader:"babel-loader"
+        loader: "babel-loader"
 
       },
       {

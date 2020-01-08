@@ -10,13 +10,15 @@
 
 <body>
   <div id="app">
-     {{name}}
-     <div>{{name}}</div>
-     <div l-text="age"></div>
-     <div>{{obj.foo}}</div>
-     <input type="text" l-model="name">
-     <div l-html="content"></div>
-     <div @click="changeName">我要改变名字</div>
+    {{name}}
+    <div>{{name}}</div>
+    <div l-text="age"></div>
+    <div>{{obj.foo}}</div>
+    <input type="text" l-model="name">
+    <div>{{goods}}</div>
+    <div l-html="content"></div>
+    <div @click="changeName">我要改变名字</div>
+    <div @click="changeArray">我要用数组改变长度</div>
   </div>
 </body>
 

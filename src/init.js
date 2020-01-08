@@ -1,5 +1,6 @@
 //初始化编译
 import Compile from './compile/compile.js';
+import {getData} from './instance/state.js';
 //初始化监听器
 import {
   observe,
@@ -11,9 +12,12 @@ export default class MyVue {
     //设置option
     this.$option = option;
     //设置数据
-    this.$data = option.data;
+
+    this.$data = typeof this.$option.data === 'function' ? getData(this.$option.data, this) : this.$option.data || {}
+  
+    // this.$data = option.data;
     //执行观察
-    proxyData(this.$data,this)
+    proxyData(this.$data, this)
     observe(this.$data, this)
     //执行编译
     new Compile(option.el, this);
